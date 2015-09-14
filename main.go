@@ -52,7 +52,7 @@ func main() {
 	flag.IntVar(&globalLimitBps, "global-rate", globalLimitBps, "Global rate limit, in bytes/s")
 	flag.BoolVar(&debug, "debug", false, "Enable debug output")
 	flag.StringVar(&statusAddr, "status-srv", ":22070", "Listen address for status service (blank to disable)")
-	flag.StringVar(&poolAddrs, "pools", defaultPoolAddrs, "Comma separated list of relau pool addresses to join")
+	flag.StringVar(&poolAddrs, "pools", defaultPoolAddrs, "Comma separated list of relay pool addresses to join")
 
 	flag.Parse()
 
