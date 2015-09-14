@@ -32,6 +32,7 @@ type ProtocolClient struct {
 
 	mut       sync.RWMutex
 	connected bool
+	latency   time.Duration
 }
 
 func NewProtocolClient(uri *url.URL, certs []tls.Certificate, invitations chan protocol.SessionInvitation) *ProtocolClient {
@@ -64,12 +65,14 @@ func (c *ProtocolClient) Serve() {
 	c.stopped = make(chan struct{})
 	defer close(c.stopped)
 
+	t0 := time.Now()
 	if err := c.connect(); err != nil {
 		if debug {
 			l.Debugln("Relay connect:", err)
 		}
 		return
 	}
+	latency := time.Since(t0)
 
 	if debug {
 		l.Debugln(c, "connected", c.conn.RemoteAddr())
@@ -93,6 +96,7 @@ func (c *ProtocolClient) Serve() {
 	defer c.cleanup()
 	c.mut.Lock()
 	c.connected = true
+	c.latency = latency
 	c.mut.Unlock()
 
 	messages := make(chan interface{})
@@ -166,6 +170,13 @@ func (c *ProtocolClient) StatusOK() bool {
 	con := c.connected
 	c.mut.RUnlock()
 	return con
+}
+
+func (c *ProtocolClient) Latency() time.Duration {
+	c.mut.RLock()
+	lat := c.latency
+	c.mut.RUnlock()
+	return lat
 }
 
 func (c *ProtocolClient) String() string {
