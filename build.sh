@@ -2,10 +2,9 @@
 set -euo pipefail
 set nullglob
 
-echo Get dependencies
-go get -d
-
 rm -rf relaysrv-*-*
+
+export GOPATH="$(pwd)/Godeps/_workspace:$GOPATH"
 
 build() {
 	export GOOS="$1"
