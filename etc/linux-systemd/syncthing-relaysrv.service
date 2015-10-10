@@ -8,6 +8,7 @@ Group=syncthing-relaysrv
 ExecStart=/usr/bin/relaysrv
 WorkingDirectory=/var/lib/syncthing-relaysrv
 RootDirectory=/var/lib/syncthing-relaysrv
+SuccessExitStatus=2
 
 PrivateTmp=true
 ProtectSystem=full
