@@ -9,11 +9,9 @@ import (
 	"time"
 )
 
-var rc *rateCalculator
+
 
 func statusService(addr string) {
-	rc = newRateCalculator(360, 10*time.Second, &bytesProxied)
-
 	http.HandleFunc("/status", getStatus)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		log.Fatal(err)
@@ -36,7 +34,7 @@ func getStatus(w http.ResponseWriter, r *http.Request) {
 	status["bytesProxied"] = atomic.LoadInt64(&bytesProxied)
 	status["goVersion"] = runtime.Version()
 	status["goOS"] = runtime.GOOS
-	status["goAarch"] = runtime.GOARCH
+	status["goArch"] = runtime.GOARCH
 	status["goMaxProcs"] = runtime.GOMAXPROCS(-1)
 	status["kbps10s1m5m15m30m60m"] = []int64{
 		rc.rate(10/10) * 8 / 1000,
@@ -64,45 +62,4 @@ func getStatus(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(bs)
-}
-
-type rateCalculator struct {
-	rates     []int64
-	prev      int64
-	counter   *int64
-	startTime time.Time
-}
-
-func newRateCalculator(keepIntervals int, interval time.Duration, counter *int64) *rateCalculator {
-	r := &rateCalculator{
-		rates:     make([]int64, keepIntervals),
-		counter:   counter,
-		startTime: time.Now(),
-	}
-
-	go r.updateRates(interval)
-
-	return r
-}
-
-func (r *rateCalculator) updateRates(interval time.Duration) {
-	for {
-		now := time.Now()
-		next := now.Truncate(interval).Add(interval)
-		time.Sleep(next.Sub(now))
-
-		cur := atomic.LoadInt64(r.counter)
-		rate := int64(float64(cur-r.prev) / interval.Seconds())
-		copy(r.rates[1:], r.rates)
-		r.rates[0] = rate
-		r.prev = cur
-	}
-}
-
-func (r *rateCalculator) rate(periods int) int64 {
-	var tot int64
-	for i := 0; i < periods; i++ {
-		tot += r.rates[i]
-	}
-	return tot / int64(periods)
 }

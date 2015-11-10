@@ -113,12 +113,14 @@ func main() {
 	if globalLimitBps > 0 {
 		globalLimiter = ratelimit.NewBucketWithRate(float64(globalLimitBps), int64(2*globalLimitBps))
 	}
-
+	
+	rc = newRateCalculator(360, 10*time.Second, &bytesProxied)
+	
 	if statusAddr != "" {
 		go statusService(statusAddr)
 	}
 
-	uri, err := url.Parse(fmt.Sprintf("relay://%s/?id=%s&pingInterval=%s&networkTimeout=%s&sessionLimitBps=%d&globalLimitBps=%d&statusAddr=%s&providedBy=%s", extAddress, id, pingInterval, networkTimeout, sessionLimitBps, globalLimitBps, statusAddr, providedBy))
+	uri, err := url.Parse(fmt.Sprintf("relay://%s/?id=%s&pingInterval=%s&networkTimeout=%s&sessionLimitBps=%d&globalLimitBps=%d&statusAddr=%s&providedBy=%s&averageBps=0&bytesProxied=0", extAddress, id, pingInterval, networkTimeout, sessionLimitBps, globalLimitBps, statusAddr, providedBy))
 	if err != nil {
 		log.Fatalln("Failed to construct URI", err)
 	}

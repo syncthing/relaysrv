@@ -5,10 +5,12 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
+	"sync/atomic"
 	"time"
 )
 
@@ -17,6 +19,10 @@ func poolHandler(pool string, uri *url.URL) {
 		log.Println("Joining", pool)
 	}
 	for {
+		values := uri.Query()
+		values.Set("averageBps",fmt.Sprintf("%d",rc.rate(60*60/10)))
+		values.Set("bytesProxied",fmt.Sprintf("%d",atomic.LoadInt64(&bytesProxied)))
+		uri.RawQuery = values.Encode()
 		var b bytes.Buffer
 		json.NewEncoder(&b).Encode(struct {
 			URL string `json:"url"`
