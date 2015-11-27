@@ -8,7 +8,7 @@ https://github.com/Cyan4973/lz4
 
 Status
 ------
-[![Build Status](https://secure.travis-ci.org/bkaradzic/go-lz4.png)](http://travis-ci.org/bkaradzic/go-lz4)
+[![Build Status](https://secure.travis-ci.org/bkaradzic/go-lz4.png)](http://travis-ci.org/bkaradzic/go-lz4)  
 [![GoDoc](https://godoc.org/github.com/bkaradzic/go-lz4?status.png)](https://godoc.org/github.com/bkaradzic/go-lz4)
 
 Usage
@@ -30,22 +30,22 @@ Notes
 Contributors
 ------------
 
-Damian Gryski ([@dgryski](https://github.com/dgryski))
+Damian Gryski ([@dgryski](https://github.com/dgryski))  
 Dustin Sallings ([@dustin](https://github.com/dustin))
 
 Contact
 -------
 
-[@bkaradzic](https://twitter.com/bkaradzic)
+[@bkaradzic](https://twitter.com/bkaradzic)  
 http://www.stuckingeometry.com
 
-Project page
+Project page  
 https://github.com/bkaradzic/go-lz4
 
 License
 -------
 
-Copyright 2011-2012 Branimir Karadzic. All rights reserved.
+Copyright 2011-2012 Branimir Karadzic. All rights reserved.  
 Copyright 2013 Damian Gryski. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -68,3 +68,4 @@ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 THE POSSIBILITY OF SUCH DAMAGE.
+
