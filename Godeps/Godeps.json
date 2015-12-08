@@ -1,13 +1,14 @@
 {
 	"ImportPath": "github.com/syncthing/relaysrv",
-	"GoVersion": "go1.5.1",
-	"Packages": [
-		"."
-	],
+	"GoVersion": "go1.5.2",
 	"Deps": [
 		{
 			"ImportPath": "github.com/bkaradzic/go-lz4",
 			"Rev": "74ddf82598bc4745b965729e9c6a463bedd33049"
+		},
+		{
+			"ImportPath": "github.com/calmh/du",
+			"Rev": "3c0690cca16228b97741327b1b6781397afbdb24"
 		},
 		{
 			"ImportPath": "github.com/calmh/luhn",
@@ -23,23 +24,33 @@
 		},
 		{
 			"ImportPath": "github.com/syncthing/syncthing/lib/logger",
-			"Comment": "v0.12.6-6-g38e9b92",
-			"Rev": "38e9b92c42d827292cdddada39d7ddde646e1677"
+			"Comment": "v0.12.7-4-g9314080",
+			"Rev": "931408037c17233a636dabd5eaa476de1691b4b6"
+		},
+		{
+			"ImportPath": "github.com/syncthing/syncthing/lib/osutil",
+			"Comment": "v0.12.7-4-g9314080",
+			"Rev": "931408037c17233a636dabd5eaa476de1691b4b6"
 		},
 		{
 			"ImportPath": "github.com/syncthing/syncthing/lib/protocol",
-			"Comment": "v0.12.6-6-g38e9b92",
-			"Rev": "38e9b92c42d827292cdddada39d7ddde646e1677"
+			"Comment": "v0.12.7-4-g9314080",
+			"Rev": "931408037c17233a636dabd5eaa476de1691b4b6"
 		},
 		{
 			"ImportPath": "github.com/syncthing/syncthing/lib/relay/protocol",
-			"Comment": "v0.12.6-6-g38e9b92",
-			"Rev": "38e9b92c42d827292cdddada39d7ddde646e1677"
+			"Comment": "v0.12.7-4-g9314080",
+			"Rev": "931408037c17233a636dabd5eaa476de1691b4b6"
+		},
+		{
+			"ImportPath": "github.com/syncthing/syncthing/lib/sync",
+			"Comment": "v0.12.7-4-g9314080",
+			"Rev": "931408037c17233a636dabd5eaa476de1691b4b6"
 		},
 		{
 			"ImportPath": "github.com/syncthing/syncthing/lib/tlsutil",
-			"Comment": "v0.12.6-6-g38e9b92",
-			"Rev": "38e9b92c42d827292cdddada39d7ddde646e1677"
+			"Comment": "v0.12.7-4-g9314080",
+			"Rev": "931408037c17233a636dabd5eaa476de1691b4b6"
 		},
 		{
 			"ImportPath": "golang.org/x/text/transform",
