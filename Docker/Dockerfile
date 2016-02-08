@@ -1,6 +1,7 @@
 FROM debian
 # Syncthing-Relay Server
 MAINTAINER <needs to be set>
+# based on https://hub.docker.com/r/blakev/syncthing-relaysrv/
 
 ENV DEBUG           false
 ENV SERV_PORT       22067
