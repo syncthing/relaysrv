@@ -32,7 +32,7 @@ RUN apt-get update \
     && apt-get clean -y \
     && apt-get autoclean -y \
     && apt-get autoremove -y \
-    #cp -R /usr/share/locale/en\@* /tmp/ && rm -rf /usr/share/locale/* && mv /tmp/en\@* /usr/share/locale/ \
+    && cp -R /usr/share/locale/en\@* /tmp/ && rm -rf /usr/share/locale/* && mv /tmp/en\@* /usr/share/locale/ \
     && rm -rf /var/cache/debconf/*-old \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /usr/share/doc/* \
