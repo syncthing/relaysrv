@@ -1,6 +1,6 @@
 FROM debian
 # Syncthing-Relay Server
-MAINTAINER <needs to be set>
+MAINTAINER Lars K.W. Gohlke <lkwg82@gmx.de>
 # based on https://hub.docker.com/r/blakev/syncthing-relaysrv/
 
 ENV DEBUG           false
