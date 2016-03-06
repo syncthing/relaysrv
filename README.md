@@ -20,7 +20,7 @@ Please note that `relaysrv` is only usable by `syncthing` **version v0.12 and on
 
 To run `relaysrv` you need to have port 22067 available to the internet, which means you might need to allow it through your firewall if you **have a public IP, or setup a port-forwarding** (22067 to 22067) if you are behind a router.
 
-Furthermore, by default relaysrv will also expose a /status HTTP endpoint on port 22070, which is used by the pool servers to peek at metrics of the relaysrv, such as what are the current transfer rates, how many clients are connected, etc, etc. If you wish this information to be available, similarlly you might want to allow it through your firewall, or port-forward it (22070 to 22070) on your NAT device.
+Furthermore, **by default relaysrv will also expose a /status HTTP endpoint on port 22070**, which is used by the pool servers to peek at metrics of the relaysrv, such as what are the current transfer rates, how many clients are connected, etc, etc. If you wish this information to be available, similarlly you might want to allow it through your firewall, or port-forward it (22070 to 22070) on your NAT device.
 
 This is **not mandatory** for the relaysrv to function, and is used only to gather metrics and present them in the overview page of the pool server, displaying stats about the specific relay.
 
