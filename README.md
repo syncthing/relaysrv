@@ -2,7 +2,7 @@ relaysrv
 ========
 
 This is the relay server for the `syncthing` project. To get it, download the
-[latest build](http://build.syncthing.net/job/relaysrv/lastSuccessfulBuild/artifact/)
+[latest build](https://build.syncthing.net/job/strelaysrv/lastSuccessfulBuild/artifact/)
 from the build server. Occasionally, releases will be made available on
 the "Releases" tab of this repository.
 
